@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Красный круг</title>
+
+	<style>
+		* {margin: 0; padding: 0}
+		:focus,:active{outline: none;}
+
+		body {
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		button {
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			border: solid 1px black;
+			border-radius: 25px;
+			cursor: pointer;
+			box-shadow: 0px 0px 18px rgb(29, 29, 78);
+			margin: 0px 0px 115px 0px;
+		}
+
+		button:active {
+			box-shadow: 0px 0px 5px rgb(29, 29, 78);
+		}
+		.container {
+			min-width: 800px;
+			min-height: 662px;
+			background-color: rgb(231, 231, 243);
+			text-align: center;
+			padding: 100px 0px 0px 0px;
+			
+		}
+
+		.container__inputs {
+			margin: 0px 0px 30px 0px;
+		}
+
+		input {
+			width: 50px;
+		}
+
+		.circle {
+			background-color: red;
+			transition-duration: 2s;
+			transition-property: width, height;
+			transform: translateY(-50%);
+			border-radius: 50%;
+			cursor: pointer;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="container__inputs">
+			<span>Введите радиус круга</span>
+			<input type="text" class="container__input">
+		</div>
+		<button id="btn">Показать красный кружок</button>
+	</div>
+
+	<script>
+		const btn = document.querySelector('#btn'),
+			  containerBlock = document.querySelector('.container');
+
+		btn.addEventListener('click', showRedCircle);
+
+		containerBlock.addEventListener('click', function(event) {
+			let target = event.target;
+			
+			if (target.classList.contains('circle')) {
+				containerBlock.removeChild(target);
+			}
+		});
+
+		function showRedCircle() {
+			let circle = document.createElement('div'),
+				wx = Math.random() * (500 - 300) + 300,
+				hy = Math.random() * (650 - 400) + 400,
+				ra = Math.random() * (100 - 50) + 50;
+	
+			circle.style.width = 0 + 'px';
+			circle.style.height = 0 + 'px';
+			circle.classList.add('circle');
+
+			document.querySelector('.container').appendChild(circle);
+			
+			setTimeout(() => {
+				circle.style.width = ra * 2 + 'px';
+				circle.style.height = ra * 2 + 'px';
+			}, 0)
+		}	
+	</script>
+</body>
+</html>
