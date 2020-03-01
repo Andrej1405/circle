@@ -7,7 +7,7 @@
 
 	<style>
 		* {margin: 0; padding: 0}
-		:focus,:active{outline: none;}
+		:focus,:active {outline: none;}
 
 		body {
 			max-width: 800px;
@@ -28,6 +28,7 @@
 		button:active {
 			box-shadow: 0px 0px 5px rgb(29, 29, 78);
 		}
+		
 		.container {
 			min-width: 800px;
 			min-height: 662px;
@@ -35,14 +36,6 @@
 			text-align: center;
 			padding: 100px 0px 0px 0px;
 			
-		}
-
-		.container__inputs {
-			margin: 0px 0px 30px 0px;
-		}
-
-		input {
-			width: 50px;
 		}
 
 		.circle {
@@ -58,10 +51,6 @@
 </head>
 <body>
 	<div class="container">
-		<div class="container__inputs">
-			<span>Введите радиус круга</span>
-			<input type="text" class="container__input">
-		</div>
 		<button id="btn">Показать красный кружок</button>
 	</div>
 
@@ -81,8 +70,6 @@
 
 		function showRedCircle() {
 			let circle = document.createElement('div'),
-				wx = Math.random() * (500 - 300) + 300,
-				hy = Math.random() * (650 - 400) + 400,
 				ra = Math.random() * (100 - 50) + 50;
 	
 			circle.style.width = 0 + 'px';
